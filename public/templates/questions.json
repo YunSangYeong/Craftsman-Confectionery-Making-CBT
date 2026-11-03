@@ -1,0 +1,25 @@
+[
+  {
+    "id": "IMPORT-EXAMPLE-001",
+    "subject": "과자류 재료, 제조 및 위생관리",
+    "topic": "재료",
+    "question": "제과용 밀가루를 보관할 때 적절한 방법은?",
+    "choices": [
+      "밀봉하여 습기와 해충을 관리한다",
+      "물을 섞어 실온에 방치한다",
+      "세제와 섞는다",
+      "개봉하여 바닥에 둔다"
+    ],
+    "answer": 1,
+    "explanation": "밀가루는 습기와 해충 등의 영향을 받으므로 적절히 밀봉하고 청결한 장소에서 표시된 보관 조건을 따른다.",
+    "difficulty": "하",
+    "year": null,
+    "session": null,
+    "type": "original",
+    "sourceUrl": "https://github.com/YunSangYeong/Craftsman-Confectionery-Making-CBT",
+    "verificationStatus": "pending",
+    "reviewNote": "양식 예제. 실제 사용 전 근거를 검토하세요.",
+    "version": "main",
+    "rights": "자체 제작 학습 문항, CC BY 4.0. 외부 기출 원문 미사용."
+  }
+]

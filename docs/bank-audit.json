@@ -1,0 +1,15 @@
+{
+  "registered": 1000,
+  "reviewed": 1000,
+  "original": 1000,
+  "past": 0,
+  "reconstructed": 0,
+  "conceptual": 60,
+  "numericVariants": 940,
+  "numericFamilies": 20,
+  "variantsPerFamily": 47,
+  "shortfall": 0,
+  "original60Unchanged": true,
+  "deterministicSha256": "d04b69577879e8fda153149c8ae135b17637a5599fd435a9b4d80e5ead385a6c",
+  "reviewScope": "Internal concept/template wording review and independent arithmetic tests; no external expert review or official syllabus reconciliation."
+}

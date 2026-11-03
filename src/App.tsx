@@ -155,6 +155,7 @@ function Source({ q }: { q: Question }) {
   return (
     <div className="source">
       <span className="tag">{TYPE_LABEL[q.type]}</span>
+      {q.family && <span className="tag">계산 조건 변형 · {q.family}</span>}
       <span>
         {q.year
           ? `${q.year}년 ${q.session ? `${q.session}회차` : ""}`
@@ -871,6 +872,10 @@ function App() {
                       bank.filter((q) => q.verificationStatus === "reviewed")
                         .length
                     }
+                  </p>
+                  <p>
+                    개념형 {bank.filter(q => !q.calculation).length} · 계산 조건 변형 {bank.filter(q => q.calculation).length}
+                    문항 / {new Set(bank.filter(q => q.family).map(q => q.family)).size}유형
                   </p>
                 </div>
                 <button
@@ -1782,7 +1787,7 @@ function BankManager({
           </strong>
           <br />
           원문 기출 0 · 복원문제 0. 공식 자료 접근 제한으로 기출 원문 및
-          출제기준 대조는 완료하지 못했습니다. 기본 문항은 AI 일반 지식 기반으로 작성하고 내부 문장 검토를 거쳤으며 외부 전문가 검수는 받지 않았습니다. 숫자 변형 0개, 목표 1,000개 대비 940개 부족합니다. 시험 규칙(60문항·60분·4지선다·60점·과락 없음)은 공식 자료 미열람으로 학습용 가정입니다.
+          출제기준 대조는 완료하지 못했습니다. 기본 문항은 AI 일반 지식 기반으로 작성하고 내부 문장 검토를 거쳤으며 외부 전문가 검수는 받지 않았습니다. 개념형 60개와 계산 20유형 × 조건 47개(940개), 총 1,000개입니다. 계산 변형은 독립 개념 940개나 기출 940개를 뜻하지 않습니다. 시험 규칙(60문항·60분·4지선다·60점·과락 없음)은 공식 자료 미열람으로 학습용 가정입니다.
         </div>
       </div>
       <div className="bank-tools panel">

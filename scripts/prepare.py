@@ -66,4 +66,7 @@ for i,line in enumerate(rows.splitlines(),1):
  topic,question,correct,*rest=line.split('|'); wrong=rest[:3]; explanation=rest[3]; choices=[correct,*wrong]; shift=i%4;choices=choices[shift:]+choices[:shift]
  bank.append(dict(id=f'CONF-{i:03}',subject='과자류 재료, 제조 및 위생관리',topic=topic,question=question,choices=choices,answer=choices.index(correct)+1,explanation=explanation,difficulty='하',year=None,session=None,type='original',sourceUrl='https://github.com/YunSangYeong/Craftsman-Confectionery-Making-CBT',verificationStatus='reviewed',reviewNote='AI 일반 제과 지식 기반 자체 작성. 내부 문장·보기 검토 완료, 외부 자료 정답 대조 및 전문가 검수 미실시. 저장소 URL은 작성 위치이며 외부 증빙이 아님.',version='main',rights='자체 제작 학습 문항, CC BY 4.0. 외부 기출 원문 미사용.'))
 assert len(bank)==60
+from numeric_questions import numeric_questions
+bank.extend(numeric_questions())
+assert len(bank)==1000
 (root/'src/data/questions.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n')

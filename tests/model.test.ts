@@ -31,10 +31,10 @@ function roundDecimalHalfUp(value: number, places: number) {
   );
 }
 describe("제과 문제은행 품질", () => {
-  it("실제 60문항, 정규화 중복 없음, 전부 자체 제작이며 출제 연도 미부여", () => {
-    expect(bank).toHaveLength(60);
-    expect(new Set(bank.map(fingerprint)).size).toBe(60);
-    expect(new Set(bank.map(q => q.id)).size).toBe(60);
+  it("실제 1,000문항, 정규화 중복 없음, 전부 자체 제작이며 출제 연도 미부여", () => {
+    expect(bank).toHaveLength(1000);
+    expect(new Set(bank.map(fingerprint)).size).toBe(1000);
+    expect(new Set(bank.map(q => q.id)).size).toBe(1000);
     for (const q of bank) {
       expect(() => validateQuestion(q)).not.toThrow();
       expect(q.type).toBe("original");
@@ -134,12 +134,12 @@ describe("랜덤 학습", () => {
   it("한 과목의 모든 문항을 순회하기 전에는 중복이 없다", () => {
     let p = startPractice(bank, "main", "과자류 재료, 제조 및 위생관리");
     const ids = new Set<string>();
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < bank.length; i++) {
       expect(ids.has(p.currentId)).toBe(false);
       ids.add(p.currentId);
       p = nextPractice(p, bank);
     }
-    expect(ids.size).toBe(60);
+    expect(ids.size).toBe(1000);
     expect(p.subject).toBe("과자류 재료, 제조 및 위생관리");
   });
   it("즉시 채점·연속 정답·통계를 저장하며 중복 채점을 방지한다", () => {
